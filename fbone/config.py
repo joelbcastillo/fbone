@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
 
 import os
+from pathlib import Path
 
-from utils import make_dir, INSTANCE_FOLDER_PATH
+from dotenv import load_dotenv
+from fbone.utils import make_dir, INSTANCE_FOLDER_PATH
 
+basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+print(basedir)
+
+dotenv_path = os.path.join(basedir, '.env')
+load_dotenv(dotenv_path)
 
 class BaseConfig(object):
 

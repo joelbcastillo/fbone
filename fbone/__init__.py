@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from app import create_app
+from fbone.app import create_app

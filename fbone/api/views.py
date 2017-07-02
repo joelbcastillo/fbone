@@ -4,7 +4,7 @@ from flask import Blueprint, request, jsonify
 from flask_login import login_user, current_user, logout_user
 from flask_restful import Api, Resource
 
-from ..user import User
+from fbone.user import User
 
 
 api = Blueprint('api', __name__, url_prefix='/api')

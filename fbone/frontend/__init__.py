@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from views import frontend
+from fbone.frontend.views import frontend

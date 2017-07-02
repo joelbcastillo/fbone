@@ -2,12 +2,12 @@
 
 from flask import Flask, render_template
 
-from config import DefaultConfig
-from user import User
+from fbone.config import DefaultConfig
+from fbone.user import User
 
-from extensions import db, login_manager
-from filters import format_date, pretty_date, nl2br
-from utils import INSTANCE_FOLDER_PATH
+from fbone.extensions import db, login_manager
+from fbone.filters import format_date, pretty_date, nl2br
+from fbone.utils import INSTANCE_FOLDER_PATH
 
 
 # For import *
@@ -70,9 +70,9 @@ def configure_extensions(app):
 def configure_blueprints(app):
     """Configure blueprints in views."""
 
-    from user import user
-    from frontend import frontend
-    from api import api
+    from fbone.user import user
+    from fbone.frontend import frontend
+    from fbone.api import api
 
     for bp in [user, frontend, api]:
         app.register_blueprint(bp)

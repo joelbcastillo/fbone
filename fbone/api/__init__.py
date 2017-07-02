@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from views import api
+from fbone.api.views import api

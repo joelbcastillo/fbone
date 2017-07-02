@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 
-from models import User
-from views import user
+from fbone.user.models import User
+from fbone.user.views import user

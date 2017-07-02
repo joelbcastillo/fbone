@@ -16,9 +16,9 @@ REMOTE_DB_PASSWORD = ""
 REMOTE_DB_NAME = ""
 
 # Local Database Config
-LOCAL_DB_USERNAME = ""
-LOCAL_DB_PASSWORD = ""
-LOCAL_DB_NAME = ""
+LOCAL_DB_USERNAME = "fbone"
+LOCAL_DB_PASSWORD = "fbone"
+LOCAL_DB_NAME = "fbone"
 
 # the user to use for the remote commands
 env.user = ''
@@ -109,11 +109,11 @@ def syncdb():
     """Sync loacl db with remote db"""
 
     if not REMOTE_DB_USERNAME or not REMOTE_DB_PASSWORD or not REMOTE_DB_NAME:
-        print "Please setup remote db configs"
+        print("Please setup remote db configs")
         return
 
     if not LOCAL_DB_USERNAME or not LOCAL_DB_PASSWORD or not LOCAL_DB_NAME:
-        print "Please setup local db configs"
+        print("Please setup local db configs")
         return
 
     with cd("/tmp"):
