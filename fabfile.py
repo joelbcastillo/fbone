@@ -5,15 +5,21 @@ Fabfile for managing a Python/Flask/Apache/MySQL project in MacOS/Ubuntu.
 
 import os
 
+from dotenv import load_dotenv
 from fabric.api import env, task, run, local, get, sudo
 from fabric.context_managers import cd, lcd, prefix, shell_env
+
+basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+
+dotenv_path = os.path.join(basedir, '.env')
+load_dotenv(dotenv_path)
 
 PROJECT_NAME = "fbone"
 
 # Remote Database Config
-REMOTE_DB_USERNAME = ""
-REMOTE_DB_PASSWORD = ""
-REMOTE_DB_NAME = ""
+REMOTE_DB_USERNAME = os.environ.get("DB_USER")
+REMOTE_DB_PASSWORD = os.environ.get("DB_PASS")
+REMOTE_DB_NAME = os.environ.get("DB_NAME")
 
 # Local Database Config
 LOCAL_DB_USERNAME = "fbone"
@@ -21,9 +27,9 @@ LOCAL_DB_PASSWORD = "fbone"
 LOCAL_DB_NAME = "fbone"
 
 # the user to use for the remote commands
-env.user = ''
+env.user = os.environ.get("REMOTE_USER")
 # the servers where the commands are executed
-env.hosts = ['']
+env.hosts = [os.environ.get("REMOTE_HOST")]
 # http://stackoverflow.com/questions/17102968/reading-logs-with-fabric
 env.remote_interrupt = True
 

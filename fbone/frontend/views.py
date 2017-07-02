@@ -18,8 +18,6 @@ frontend = Blueprint('frontend', __name__)
 
 @frontend.route('/')
 def index():
-    if current_user.is_authenticated:
-        return redirect(url_for('user.profile'))
     return render_template('index.html')
 
 
